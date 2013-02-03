@@ -1,0 +1,83 @@
+{% extends "layout.html" %}
+
+{% block title %}南开社团—南开中学学生会{% endblock %}
+
+{% block head %}
+    <style>
+        #st-link {
+            height: 550px;
+            width: 100%;
+        }
+        .st-link-metro {
+            height: 105px;
+            width: 115px;;
+            margin-left: 9px;
+            margin-top: 9px;
+        }
+        .st-link-metro a {
+            width: 115px;
+            margin-top: -9px;
+            color: white;
+        }
+
+        #content {
+            margin: 0 auto;
+            height: 1515px;
+            width: 1280px;
+        }
+        #content-body {
+            width: 942px;
+            margin: 0 auto;
+        }
+        #content-article {
+            float: left;
+            width: 765px;
+            height: 930px;
+            background-color: white;
+        }
+        #content-link {
+            float: left;
+            margin-left: -8px;
+            width: 185px;
+            height: 930px;
+            background: -moz-linear-gradient(left, #330553, #552385);
+            background: -webkit-gradient(linear,0 0, 100% 0, from(#330553), to(#552385));
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#330553', endColorstr='#552385', GradientType='0');
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div id="content-article">
+
+        <div id="st-link">
+            {% for st in sts %}
+                <div class="st-link-metro"><a href="{{ url_for('list', name=st) }}">{{ st }}</a></div>
+            {% endfor %}
+        </div>
+
+        <div class="content-article-shadow-top"></div>
+        <div class="content-article-content">
+            <div class="content-article-content-left">
+                <img src="/static/image/news.png" class="content-article-content-left-image"/>
+            </div>
+            <div class="content-article-content-image"></div>
+            <div class="content-article-content-image-light"></div>
+            <div class="content-article-content-topic">
+                <ul class="content-article-content-topic-list">
+                    <li><a href="#">【事件性质】单机此处添加事件</a></li>
+                    <li><a href="#">【事件性质】单机此处添加事件</a></li>
+                    <li><a href="#">【事件性质】单机此处添加事件</a></li>
+                    <li><a href="#">【事件性质】单机此处添加事件</a></li>
+                    <li><a href="#">【事件性质】单机此处添加事件</a></li>
+                    <li><a href="#">【事件性质】单机此处添加事件</a></li>
+                    <li><a href="#">【事件性质】单机此处添加事件</a></li>
+                    <li><a href="#">【事件性质】单机此处添加事件</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="content-article-shadow-bottom"></div>
+
+
+    </div>
+{% endblock %}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link href="http://lib.sinaapp.com/js/bootstrap/2.2.1/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
+    <link href="http://lib.sinaapp.com/js/bootstrap/2.2.1/css/bootstrap-responsive.min.css" type="text/css" rel="stylesheet" />
+    <style>
+        body {
+            background-color: #eee;
+        }
+        form {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            margin-top: -75px;
+            margin-left: -290px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <form action="{{ url_for('login') }}" method="post" class="form-horizontal">
+        <div class="control-group">
+            <label class="control-label" for="username">用户名</label>
+            <div class="controls">
+                <input type="text" id="username" placeholder="用户名" name="username">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="password">密码</label>
+            <div class="controls">
+                <input type="password" id="password" placeholder="密码" name="password">
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <button type="submit" class="btn">Login</button>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>

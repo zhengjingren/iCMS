@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--
+    FUCK YOU
+    闫叔
+    FUCK YOUR MOTHER EVERYDAY
+    IN THE MORNING IN THE TREE
+    -->
+    <meta charset="utf-8" />
+    <title>{% block title %}{% endblock %}</title>
+    <link href="{{ url_for('static', filename='css/css.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='css/normalize.css') }}" type="text/css" rel="stylesheet" />
+    <script src="{{ url_for('static', filename='js/jquery-1.9.0.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.backstretch.js') }}"></script>
+    {% block head %}
+    {% endblock %}
+</head>
+<body>
+<div id="header">
+    <div id="logolettertop"><img src="/static/image/logo-letter.png" /></div>
+    <div class="linetop"></div>
+    <div id="logopictop"><img src="/static/image/logo-pic.png" /></div>
+    <div id="search">
+        <div id="searchicon"><img src="/static/image/search.png" /></div>
+        <form>
+            <input type="text" id="searchinput" placeholder="搜索" />
+        </form>
+    </div>
+</div>
+
+<div id="hr"></div>
+
+<div id="content">
+    <script>
+        $("#content").backstretch("{{ url_for("static", filename='image/bg.jpg') }}");
+    </script>
+    <div id="nav">
+        <div id="nav-content">
+            {% for p in ['index', 'xsh', 'nkst', 'zgtx'] %}
+            <a href="{{ url_for(p) }}" id="nav-{{ p }}" {% if g.active == p %}class="active"{% endif %}> </a>
+            {% endfor %}
+        </div>
+    </div>
+    <div id="bglight"></div>
+    <div id="light"></div>
+    <div id="slide">
+        <div id="slidelight"></div>
+    </div>
+    <div id="content-body">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <div id="content-link">
+        <div class="link-title">学生会</div>
+        <ul class="link-content">
+            <li><a href="{{ url_for('list', name='网络部') }}">》网络部</a></li>
+            <li><a href="{{ url_for('list', name='文艺部') }}">》文艺部</a></li>
+            <li><a href="{{ url_for('list', name='社团部') }}">》社团部</a></li>
+            <li><a href="{{ url_for('list', name='学习部') }}">》学习部</a></li>
+            <li><a href="{{ url_for('list', name='外联部') }}">》外联部</a></li>
+            <li><a href="{{ url_for('xsh') }}">》More…</a></li>
+        </ul>
+
+        <div class="link-title">南开社团</div>
+        <ul class="link-content">
+            <li><a href="{{ url_for('list', name='心理社') }}">》心理社</a></li>
+            <li><a href="{{ url_for('list', name='物理社') }}">》物理社</a></li>
+            <li><a href="{{ url_for('list', name='生物社') }}">》生物社</a></li>
+            <li><a href="{{ url_for('list', name='话剧社') }}">》话剧社</a></li>
+            <li><a href="{{ url_for('list', name='电声乐队') }}">》电声乐队</a></li>
+            <li><a href="{{ url_for('nkst') }}">》More…</a></li>
+        </ul>
+
+        <div class="link-title">纵观天下</div>
+        <ul class="link-content">
+            <li><a href="{{ url_for('list', name='热点') }}">》热点</a></li>
+            <li><a href="{{ url_for('list', name='图说') }}">》图说</a></li>
+            <li><a href="{{ url_for('list', name='影评') }}">》影评</a></li>
+            <li><a href="{{ url_for('list', name='文摘') }}">》文摘</a></li>
+            <li><a href="{{ url_for('list', name='书评') }}">》书评</a></li>
+            <li><a href="{{ url_for('zgtx') }}">》More…</a></li>
+        </ul>
+    </div>
+    <div class="cl"></div>
+    <div id="bg-light-bottom"></div>
+    <div id="light-bottom"></div>
+    <div class="cl"></div>
+    <div id="copyright">
+        <div id="copyright-content">
+            <p>Proudly Powered by <a href="https://github.com/nkwlb/iCMS">iCMS</a>
+                |
+                Lovingly Made by <a href="http://whouz.com">whtsky</a>
+                |
+                Theme designed by Guanghe Yan. Made by <a href="http://t.qq.com/gengxichao">Xichao Geng</a> &
+                <a href="http://whouz.com">whtsky</a>
+                <!--
+                I have the code style and the design
+                But I CAN DO NOTHING ABOUT IT.
+                SORRY.
+                -->
+            </p>
+            <p>管理员邮箱：webmaster@nkzx.cn 网站备案号：津ICP备05005392号　 津教备0160号 <a href="{{ url_for('login') }}">Login</a></p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,325 @@
+@import url('nav.css');
+
+#st-link {
+    height: 610px;
+    width: 100%;
+}
+.st-link-metro {
+    height: 197px;
+    width: 227px;
+    background-color: #662D91;
+    float: left;
+    margin-left: 19px;
+    margin-top: 12px;
+    position: relative;
+    background-color: #662D91
+}
+.st-link-metro a {
+    color: white;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: "微软雅黑", "Lucida Grande", sans-serif;
+    font-size: 15px;
+    position: absolute;
+    top: 50%;
+}
+
+#header {
+    margin: 0 auto;
+    height: 118px;
+    width: 1280px;
+    background: -moz-linear-gradient(left, #552385, #3F1464);
+    background: -webkit-gradient(linear,0 0, 100% 0, from(#552385), to(#3F1464));
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#552385', endColorstr='#3F1464', GradientType='0');
+}
+.cl {
+    clear: both;
+}
+a:link {
+    text-decoration: none;
+    color: black;
+}
+a:visited {
+    text-decoration: none;
+    color: black;
+}
+a:hover {
+    text-decoration: underline;
+    color: blue;
+}
+a:active {
+    text-decoration: underline;
+    color: blue;
+}
+.link-content a:link {
+    text-decoration: none;
+    color: white;
+}
+.link-content a:visited {
+    text-decoration: none;
+    color: white;
+}
+.link-content a:hover {
+    text-decoration: underline;
+    color: white;
+}
+.link-content a:active {
+    text-decoration: underline;
+    color: white;
+}
+#logolettertop{
+    float: left;
+    margin-left: 124px;
+    margin-top: 51px;
+}
+.linetop {
+    margin-left: 9px;
+    margin-top: 40px;
+    float: left;
+    background-color: white;
+    width: 2px;
+    height: 59px;
+}
+#logopictop{
+    float: left;
+    margin-left: 15px;
+    margin-top: 43px;
+}
+#search {
+    float: right;
+    height: 46px;
+    width: 446px;
+    border: 2px solid #999999;
+    background-color: white;
+    margin-top: 58px;
+    margin-right: 33px;
+}
+#searchicon {
+    float: right;
+    margin-right: 14px;
+    margin-top: 5px;
+}
+#searchinput {
+    margin: 0;
+    border: 0;
+    height: 44px;
+    width: 383px;
+    font-family: "微软雅黑", "Lucida Grande", sans-serif;
+    font-size: 20px;
+    color: #999999;
+    text-align: right;
+    letter-spacing: 1px;
+}
+
+
+#hr {
+    height: 17px;
+    width: 1280px;
+    background-color: #662D91;
+    margin: 0 auto;
+}
+
+#nav {
+    margin: 0 auto;
+    margin-top: 1px;
+    background: url(../image/bg-nav.png);
+    height: 89px;
+    width: 1044px;
+}
+#nav-content {
+    height: 41px;
+    width: 431px;
+    float: right;
+    margin-top: 20px;
+    margin-right: 70px;
+}
+
+#bglight {
+    margin: 0 auto;
+    background: url(../image/bg-light.png);
+    width: 1043px;
+    height: 35px;
+}
+#light {
+    float: left;
+    background: url(../image/light.png);
+    width: 905px;
+    height: 205px;
+    margin-top: -25px;
+    margin-left: 190px;
+}
+#slide {
+    width: 942px;
+    height: 329px;
+    background-color: black;
+    margin: 0 auto;
+}
+#slidelight {
+    background: url(../image/slidelight.png);
+    width: 942px;
+    height: 243px;
+    margin: 0 auto;
+}
+
+.content-article-shadow-top {
+    background-image: url(../image/content-article-shadow-top.png);
+    width: 757px;
+    height: 12px;
+    margin: 0 auto;
+    margin-top:30px ;
+}
+.content-article-shadow-bottom {
+    background-image: url(../image/content-article-shadow-bottom.png);
+    width: 757px;
+    height: 12px;
+    margin: 0 auto;
+}
+.content-article-content {
+    height: 240px;
+    width: 765px;
+    background-color: white;
+}
+.content-article-content-left {
+    height: 240px;
+    width: 119px;
+    background-color: #3F1464;
+    float: left;
+}
+.content-article-content-left-image {
+    float: right;
+    margin-right: 15px;
+    margin-top: 20px;
+}
+.content-article-content-image-light {
+    background-image: url(../image/contentimagelight.png);
+    width: 320px;
+    height: 176px;
+    margin-left: -320px;
+    float: left;
+}
+.content-article-content-image {
+    height: 240px;
+    width: 320px;
+    background-color: black;
+    float: left;
+}
+.content-article-content-topic {
+    float: left;
+    height: 240px;
+    width: 310px;
+}
+.content-article-content-topic-list {
+    margin-top: 1px;
+    list-style: none;
+    font-family: "微软雅黑", "Lucida Grande", sans-serif;
+    font-size: 14px;
+    margin-left: -30px;
+}
+.content-article-content-topic-list li {
+    width: 250px;
+    height: 20px;
+    padding-bottom: 4px;
+    margin-top: 4px;
+    border-bottom: 2px solid #CCCCCC;
+}
+.content-article-content-topic-list li:last-child {
+    border-bottom: 0;
+}
+
+
+.link-title {
+    font-family: "微软雅黑", "Lucida Grande", sans-serif;
+    font-size: 21px;
+    color: white;
+    font-weight: bold;
+    margin-top: 15px;
+    margin-left: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid white;
+    width: 150px;
+}
+.link-content {
+    font-family: "微软雅黑", "Lucida Grande", sans-serif;
+    font-size: 13px;
+    color: white;
+    list-style: none;
+    margin-left: -20px;
+    margin-bottom: 50px;
+}
+
+#bg-light-bottom {
+    background-image: url(../image/bg-light-bottom.png);
+    margin: 0 auto;
+    width: 1043px;
+    height: 35px;
+}
+#light-bottom {
+    background-image: url(../image/light-bottom.png);
+    height: 205px;
+    width: 905px;
+    float: left;
+    margin-top: -215px;
+    margin-left: 190px;
+}
+#copyright {
+    width: 1044px;
+    height: 96px;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+}
+#copyright-content {
+    position: absolute;
+    width: 1044px;
+    height: 96px;
+}
+#copyright p {
+    margin: 0 auto;
+    margin-top: 20px;
+    text-align: center;
+    font-family: "微软雅黑", "Lucida Grande", sans-serif;
+}
+#logoletterbottom {
+    float: left;
+    margin-left: 158px;
+    margin-top: 71px;
+}
+.linebottom {
+    margin-left: 28px;
+    margin-top: 71px;
+    float: left;
+    background-color: white;
+    width: 1px;
+    height: 44px;
+}
+#logopicbottom {
+    float: left;
+    margin-left: 36px;
+    margin-top: 61px;
+}
+
+#content {
+    margin: 0 auto;
+    height: 1487px;
+    width: 1280px;
+}
+#content-body {
+    width: 942px;
+    margin: 0 auto;
+}
+#content-article {
+    float: left;
+    width: 765px;
+    height: 902px;
+    background-color: white;
+}
+#content-link {
+    float: left;
+    margin-left: -8px;
+    width: 185px;
+    height: 902px;
+    background: -moz-linear-gradient(left, #330553, #552385);
+    background: -webkit-gradient(linear,0 0, 100% 0, from(#330553), to(#552385));
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#330553', endColorstr='#552385', GradientType='0');
+}
