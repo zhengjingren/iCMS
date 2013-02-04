@@ -87,7 +87,7 @@
                         {{ post.author_id | get_name }}
                     </td>
                     <td>
-                        {{ post.pub_date.isoformat().replace('T', '') }}
+                        {{ post.pub_date.isoformat().replace('T', ' ')[:19] }}
                     </td>
                 </tr>
             {% endfor %}

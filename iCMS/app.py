@@ -1,5 +1,5 @@
 from flask import Flask
-from flask import request
+from flask import request, url_for
 from flask.ext.misaka import Misaka
 from flask.ext.sqlalchemy import SQLAlchemy
 

@@ -65,14 +65,9 @@
             <div class="content-article-content-image-light"></div>
             <div class="content-article-content-topic">
                 <ul class="content-article-content-topic-list">
-                    <li><a href="#">【事件性质】单机此处添加事件</a></li>
-                    <li><a href="#">【事件性质】单机此处添加事件</a></li>
-                    <li><a href="#">【事件性质】单机此处添加事件</a></li>
-                    <li><a href="#">【事件性质】单机此处添加事件</a></li>
-                    <li><a href="#">【事件性质】单机此处添加事件</a></li>
-                    <li><a href="#">【事件性质】单机此处添加事件</a></li>
-                    <li><a href="#">【事件性质】单机此处添加事件</a></li>
-                    <li><a href="#">【事件性质】单机此处添加事件</a></li>
+                    {% for post in posts %}
+                        <li><a href="{{ url_for('post', id=post.id) }}">{{ post.title }}</a></li>
+                    {% endfor %}
                 </ul>
             </div>
         </div>

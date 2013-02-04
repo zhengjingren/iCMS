@@ -5,17 +5,20 @@ from flask import render_template, request, redirect, url_for, session
 from flask import abort
 from flask.ext.misaka import markdown
 
+from iCMS import data
 from .app import app, db
 from .models import User, Post
-from iCMS import data
 
 
 @app.route('/')
 def index():
     # FUCK YOU, 闫叔
+    tx = Post.query.filter_by(node="tx")[:8]
+    xsh = Post.query.filter_by(node="xsh")[:8]
+    st = Post.query.filter_by(node="st")[:8]
     g.active = 'index'
     g.use_slide = True
-    return render_template('index.html')
+    return render_template('index.html', tx=tx, st=st, xsh=xsh)
 
 
 @app.route('/xsh')
@@ -23,7 +26,8 @@ def xsh():
     # FUCK YOU, 闫叔
     g.active = 'xsh'
     g.use_slide = True
-    return render_template('xsh.html', xshs=data.xsh)
+    posts = Post.query.filter_by(node="xsh")[:8]
+    return render_template('xsh.html', xshs=data.xsh, posts=posts)
 
 
 @app.route('/st')
@@ -31,7 +35,8 @@ def nkst():
     # FUCK YOU, 闫叔
     g.active = 'nkst'
     g.use_slide = True
-    return render_template('nkst.html', sts=data.st)
+    posts = Post.query.filter_by(node="st")[:8]
+    return render_template('nkst.html', sts=data.st, posts=posts)
 
 
 @app.route('/tx')
@@ -39,7 +44,10 @@ def zgtx():
     # FUCK YOU, 闫叔
     g.active = 'zgtx'
     g.use_slide = True
-    return render_template('zgtx.html')
+    posts = {}
+    for type in data.tx:
+        posts[type] = Post.query.filter_by(tag=type)[:8]
+    return render_template('zgtx.html', posts=posts, types=data.tx)
 
 
 @app.route('/login', methods=['GET', 'POST'])

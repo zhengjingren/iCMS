@@ -10,7 +10,7 @@
         }
 
         #huge-title{
-            font-size: 5em;
+            font-size: 3em;
             margin: 30px;
             text-decoration: blink;
         }
@@ -18,7 +18,6 @@
             float: right;
             margin-right: 20px;
             font-size: 1.3em;
-            margin-top: 30px;
             margin-bottom: 10px;
         }
 
@@ -35,13 +34,17 @@
             margin: 10px 30px;
         }
 
+        hr {
+            clear: both;
+        }
+
     </style>
 {% endblock %}
 
 {% block content %}
     <div id="content-article">
         <div id="list-title">
-            <span id="huge-title">{{ post.title }}</span>
+            <p id="huge-title">{{ post.title }}</p>
             <div id="now-position">
                 <a href="{{ url_for('index') }}">首页</a> 》
                 <a href="{{ l }}">{{ s }}</a> 》

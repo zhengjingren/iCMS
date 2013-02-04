@@ -1,6 +1,7 @@
 import datetime
 import hashlib
 
+from iCMS import data
 from .app import db
 
 
@@ -25,6 +26,7 @@ class Post(db.Model):
 
     author_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     tag = db.Column(db.String(80))
+    node = db.Column(db.String(80))
 
 
     def __init__(self, title, body, tag, author, pub_date=None):
@@ -34,6 +36,12 @@ class Post(db.Model):
             pub_date = datetime.datetime.utcnow()
         self.pub_date = pub_date
         self.tag = tag
+        if tag in data.st:
+            self.node = 'st'
+        elif tag in data.tx:
+            self.node = 'tx'
+        elif tag in data.xsh:
+            self.node = 'xsh'
         self.author_id = author.id
 
     def __repr__(self):
