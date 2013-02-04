@@ -14,6 +14,7 @@ from iCMS import data
 def index():
     # FUCK YOU, 闫叔
     g.active = 'index'
+    g.use_slide = True
     return render_template('index.html')
 
 
@@ -21,6 +22,7 @@ def index():
 def xsh():
     # FUCK YOU, 闫叔
     g.active = 'xsh'
+    g.use_slide = True
     return render_template('xsh.html', xshs=data.xsh)
 
 
@@ -28,6 +30,7 @@ def xsh():
 def nkst():
     # FUCK YOU, 闫叔
     g.active = 'nkst'
+    g.use_slide = True
     return render_template('nkst.html', sts=data.st)
 
 
@@ -35,6 +38,7 @@ def nkst():
 def zgtx():
     # FUCK YOU, 闫叔
     g.active = 'zgtx'
+    g.use_slide = True
     return render_template('zgtx.html')
 
 
@@ -53,24 +57,46 @@ def login():
         return redirect(url_for('index'))
 
 
-@app.route('/<name>')
-def list(name):
+@app.route('/<name>', defaults={'page': 1})
+@app.route('/<name>/page/<int:page>')
+def list(name, page):
     # 文章列表页.
     if name in data.xsh:
         g.active = 'xsh'
-        s = '学生会'
+        s = u'学生会'
         l = url_for('xsh')
     elif name in data.st:
         g.active = 'nkst'
-        s = '社团'
+        s = u'社团'
         l = url_for('nkst')
     elif name in data.tx:
         g.active = 'zgtx'
-        s = '纵观天下'
+        s = u'纵观天下'
         l = url_for('zgtx')
     else:
         abort(404)
+    posts = Post.query.filter_by(tag=name)
+    posts = posts.order_by(Post.pub_date.desc()).paginate(page, per_page=20)
+    return render_template('list.html', posts=posts, name=name,
+        s=s, l=l)
 
+
+@app.route('/<int:id>')
+def post(id):
+    post = Post.query.get(id)
+    if post.tag in data.xsh:
+        g.active = 'xsh'
+        s = u'学生会'
+        l = url_for('xsh')
+    elif post.tag in data.st:
+        g.active = 'nkst'
+        s = u'社团'
+        l = url_for('nkst')
+    elif post.tag in data.tx:
+        g.active = 'zgtx'
+        s = u'纵观天下'
+        l = url_for('zgtx')
+    return render_template('article.html', post=post, s=s, l=l)
 
 
 @app.route('/<name>/write', methods=['GET', 'POST'])
@@ -90,12 +116,11 @@ def write(name):
     )
     db.session.add(post)
     db.session.commit()
-    return redirect('/')
-    # TODO: 直接跳到文章正文
+    return redirect(url_for('post', id=post.id))
 
 
 @app.route('/preview', methods=['POST'])
 def preview():
     if 'username' not in session:
-        return 'FUCK YOU.'
+        return 'o.'
     return markdown(request.form["md"])

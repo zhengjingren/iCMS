@@ -38,15 +38,17 @@
     <div id="nav">
         <div id="nav-content">
             {% for p in ['index', 'xsh', 'nkst', 'zgtx'] %}
-            <a href="{{ url_for(p) }}" id="nav-{{ p }}" {% if g.active == p %}class="active"{% endif %}> </a>
+                <a href="{{ url_for(p) }}" id="nav-{{ p }}" {% if g.active == p %}class="active"{% endif %}> </a>
             {% endfor %}
         </div>
     </div>
     <div id="bglight"></div>
-    <div id="light"></div>
-    <div id="slide">
-        <div id="slidelight"></div>
-    </div>
+    {% if g.use_slide %}
+        <div id="light"></div>
+        <div id="slide">
+            <div id="slidelight"></div>
+        </div>
+    {% endif %}
     <div id="content-body">
         {% block content %}
         {% endblock %}

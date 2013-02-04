@@ -1,14 +1,73 @@
-<!-- Duoshuo Comment BEGIN -->
-<div class="ds-thread"></div>
-<script type="text/javascript">
-    var duoshuoQuery = {short_name:"nkwlb"};
-    (function() {
-        var ds = document.createElement('script');
-        ds.type = 'text/javascript';ds.async = true;
-        ds.src = 'http://static.duoshuo.com/embed.js';
-        ds.charset = 'UTF-8';
-        (document.getElementsByTagName('head')[0]
-                || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-</script>
-<!-- Duoshuo Comment END -->
+{% extends "layout.html" %}
+
+{% block title %}文章正文—南开中学学生会{% endblock %}
+
+{% block head %}
+    <style>
+        .ds-thread {
+            margin-left: 30px;
+            margin-right: 30px;
+        }
+
+        #huge-title{
+            font-size: 5em;
+            margin: 30px;
+            text-decoration: blink;
+        }
+        #now-position{
+            float: right;
+            margin-right: 20px;
+            font-size: 1.3em;
+            margin-top: 30px;
+            margin-bottom: 10px;
+        }
+
+        #list-head{
+            background-color: #666;
+        }
+
+        #pagination {
+            float: right;
+            margin-right: 20px;
+        }
+
+        article {
+            margin: 10px 30px;
+        }
+
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div id="content-article">
+        <div id="list-title">
+            <span id="huge-title">{{ post.title }}</span>
+            <div id="now-position">
+                <a href="{{ url_for('index') }}">首页</a> 》
+                <a href="{{ l }}">{{ s }}</a> 》
+                <a href="{{ url_for('list', name=post.tag) }}">{{ post.tag }}</a> 》
+                {{ post.title }}
+            </div>
+        </div>
+
+        <hr />
+
+        <article>
+            {{ post.body | markdown }}
+        </article>
+        <!-- Duoshuo Comment BEGIN -->
+        <div class="ds-thread"></div>
+        <script type="text/javascript">
+            var duoshuoQuery = {short_name:"nkwlb"};
+            (function() {
+                var ds = document.createElement('script');
+                ds.type = 'text/javascript';ds.async = true;
+                ds.src = 'http://static.duoshuo.com/embed.js';
+                ds.charset = 'UTF-8';
+                (document.getElementsByTagName('head')[0]
+                        || document.getElementsByTagName('body')[0]).appendChild(ds);
+            })();
+        </script>
+        <!-- Duoshuo Comment END -->
+    </div>
+{% endblock %}
