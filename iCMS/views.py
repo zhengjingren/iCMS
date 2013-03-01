@@ -81,6 +81,10 @@ def list(name, page):
         g.active = 'zgtx'
         s = u'纵观天下'
         l = url_for('zgtx')
+    elif name in data.bjhd:
+        g.active = 'bjhd'
+        s = u'班级活动'
+        l = url_for('bjhd')
     else:
         abort(404)
     posts = Post.query.filter_by(tag=name)
@@ -104,6 +108,10 @@ def post(id):
         g.active = 'zgtx'
         s = u'纵观天下'
         l = url_for('zgtx')
+     elif post.tag in data.bjhd:
+        g.active = 'bjhd'
+        s = u'班级活动'
+        l = url_for('bjhd')
     return render_template('article.html', post=post, s=s, l=l)
 
 
@@ -111,7 +119,7 @@ def post(id):
 def write(name):
     if 'username' not in session:
         return redirect(url_for('login'))
-    if name not in (data.xsh + data.st + data.tx):
+    if name not in (data.xsh + data.st + data.tx + data.bjhd):
         abort(404)
     if request.method == 'GET':
         return render_template('writer.html')
