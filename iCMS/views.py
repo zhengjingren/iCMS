@@ -84,7 +84,7 @@ def list(name, page):
     elif name in data.bjhd:
         g.active = 'bjhd'
         s = u'班级活动'
-        l = url_for('bjhd')
+        l = url_for('list', name='bjhd', page=1)
     else:
         abort(404)
     posts = Post.query.filter_by(tag=name)
@@ -111,7 +111,7 @@ def post(id):
      elif post.tag in data.bjhd:
         g.active = 'bjhd'
         s = u'班级活动'
-        l = url_for('bjhd')
+        l = url_for('list', name='bjhd', page=1)
     return render_template('article.html', post=post, s=s, l=l)
 
 
