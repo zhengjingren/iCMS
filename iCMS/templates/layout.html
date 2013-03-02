@@ -46,7 +46,7 @@
     </script>
     <div id="nav">
         <div id="nav-content">
-            {% for p in ['index', 'xsh', 'nkst', 'zgtx'] %}
+            {% for p in ['index', 'xsh', 'nkst', 'zgtx', 'bjhd'] %}
                 <a href="{{ url_for(p) }}" id="nav-{{ p }}" {% if g.active == p %}class="active"{% endif %}> </a>
             {% endfor %}
         </div>
